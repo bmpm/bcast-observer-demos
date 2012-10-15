@@ -1,0 +1,31 @@
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN"
+"http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node>
+	<interface name="org.bluez.Adapter">
+		<method name="RegisterServiceObserver">
+			<arg name="observer" type="o" direction="in"/>
+			<arg name="match_value" type="q" direction="in"/>
+		</method>
+		<method name="UnregisterServiceObserver">
+			<arg name="observer" type="o" direction="in"/>
+		</method>
+		<method name="RegisterManufacturerObserver">
+			<arg name="observer" type="o" direction="in"/>
+			<arg name="match_value" type="q" direction="in"/>
+		</method>
+		<method name="UnregisterManufacturerObserver">
+			<arg name="observer" type="o" direction="in"/>
+		</method>
+		<method name="SetServiceData">
+			<arg name="uuid" type="q" direction="in"/>
+			<arg name="data" type="ay" direction="in"/>
+		</method>
+		<method name="SetManufacturerData">
+			<arg name="company_id" type="q" direction="in"/>
+			<arg name="data" type="ay" direction="in"/>
+		</method>
+		<method name="ClearBroadcastData"/>
+	</interface>
+
+</node>
+

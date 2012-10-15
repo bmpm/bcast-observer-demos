@@ -1,0 +1,17 @@
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN"
+"http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node name="/test/observer">
+  <interface name="org.bluez.Observer">
+    <method name="ServiceReceived">
+      <arg direction="in"  type="s" name="address" />
+      <arg direction="in"  type="q" name="uuid" />
+      <arg direction="in"  type="v" name="value" />
+    </method>
+    <method name="ManufacturerReceived">
+      <arg direction="in"  type="s" name="address" />
+      <arg direction="in"  type="q" name="cid" />
+      <arg direction="in"  type="v" name="value" />
+    </method>
+  </interface>
+</node>
+
