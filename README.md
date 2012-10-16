@@ -1,4 +1,4 @@
 bcast-observer-demos
 ====================
 
-Broadcaster/Observer demos - Bluetooth Low Energy
+Broadcaster/Observer demos using Qt - Bluetooth Low Energy
