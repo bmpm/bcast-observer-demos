@@ -3,6 +3,8 @@ folder_01.source = qml/broadcaster
 folder_01.target = qml
 DEPLOYMENTFOLDERS = folder_01
 
+CONFIG += qdbus
+
 # Additional import path used to resolve QML modules in Creator's code model
 QML_IMPORT_PATH =
 
@@ -30,8 +32,17 @@ symbian:TARGET.CAPABILITY += NetworkServices
 # CONFIG += qt-components
 
 # The .cpp file which was generated for your project. Feel free to hack it.
-SOURCES += main.cpp
+SOURCES += main.cpp \
+    wallclocksetter.cpp \
+    ../../common/manager.cpp \
+    ../../common/adapter.cpp
 
 # Please do not modify the following two lines. Required for deployment.
 include(qmlapplicationviewer/qmlapplicationviewer.pri)
 qtcAddDeployment()
+
+HEADERS += \
+    wallclocksetter.h \
+    ../../common/manager.h \
+    ../../common/adapter.h \
+    ../../common/types.h
