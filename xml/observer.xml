@@ -5,12 +5,12 @@
     <method name="ServiceReceived">
       <arg direction="in"  type="s" name="address" />
       <arg direction="in"  type="q" name="uuid" />
-      <arg direction="in"  type="v" name="value" />
+      <arg direction="in"  type="ay" name="value" />
     </method>
     <method name="ManufacturerReceived">
       <arg direction="in"  type="s" name="address" />
       <arg direction="in"  type="q" name="cid" />
-      <arg direction="in"  type="v" name="value" />
+      <arg direction="in"  type="ay" name="value" />
     </method>
   </interface>
 </node>
