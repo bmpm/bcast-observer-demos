@@ -42,7 +42,10 @@ Rectangle {
                 width: 70
                 minimumValue: 0
                 maximumValue: 23
-                value: 0
+                value: {
+                    var date = new Date()
+                    return date.getHours()
+                }
                 KeyNavigation.tab: minutes
                 KeyNavigation.backtab: submitButton
             }
@@ -58,7 +61,10 @@ Rectangle {
                 width: hour.width
                 minimumValue: 0
                 maximumValue: 59
-                value: 0
+                value: {
+                    var date = new Date()
+                    return date.getMinutes()
+                }
                 KeyNavigation.tab: seconds
                 KeyNavigation.backtab: hour
             }
@@ -74,7 +80,10 @@ Rectangle {
                 width: hour.width
                 minimumValue: 0
                 maximumValue: 59
-                value: 0
+                value: {
+                    var date = new Date()
+                    return date.getSeconds()
+                }
                 KeyNavigation.tab: submitButton
                 KeyNavigation.backtab: minutes
             }
@@ -83,7 +92,7 @@ Rectangle {
 
     Button {
         id: submitButton
-        width: 150
+        width: 200
         height: 50
         anchors.centerIn: parent
         text: "Update clients time"
