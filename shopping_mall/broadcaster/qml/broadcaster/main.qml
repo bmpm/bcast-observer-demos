@@ -35,7 +35,7 @@ Rectangle {
             height: 50
             anchors.horizontalCenter: parent.horizontalCenter
             text: "Food court"
-            onClicked: {}
+            onClicked: foodCourt.opacity = 1
         }
     }
 
@@ -47,6 +47,12 @@ Rectangle {
 
     SpecialOffer {
         id: specialOffer
+        opacity: 0
+        anchors.fill: parent
+    }
+
+    FoodCourt {
+        id: foodCourt
         opacity: 0
         anchors.fill: parent
     }
