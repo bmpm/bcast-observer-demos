@@ -17,7 +17,7 @@ Rectangle {
             height: 50
             anchors.horizontalCenter: parent.horizontalCenter
             text: "General Info"
-            onClicked: {}
+            onClicked: generalInfo.opacity = 1
         }
 
         Button {
@@ -37,5 +37,11 @@ Rectangle {
             text: "Food court"
             onClicked: {}
         }
+    }
+
+    GeneralInfo {
+        id: generalInfo
+        opacity: 0
+        anchors.fill: parent
     }
 }
