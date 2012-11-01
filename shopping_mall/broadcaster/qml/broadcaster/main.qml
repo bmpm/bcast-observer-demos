@@ -3,8 +3,8 @@ import QtQuick 1.1
 import QtDesktop 0.1
 
 Rectangle {
-    width: 360
-    height: 360
+    width: 500
+    height: 500
 
     Column {
         anchors.fill: parent
@@ -26,7 +26,7 @@ Rectangle {
             height: 50
             anchors.horizontalCenter: parent.horizontalCenter
             text: "Special offers"
-            onClicked: {}
+            onClicked: specialOffer.opacity = 1
         }
 
         Button {
@@ -41,6 +41,12 @@ Rectangle {
 
     GeneralInfo {
         id: generalInfo
+        opacity: 0
+        anchors.fill: parent
+    }
+
+    SpecialOffer {
+        id: specialOffer
         opacity: 0
         anchors.fill: parent
     }
