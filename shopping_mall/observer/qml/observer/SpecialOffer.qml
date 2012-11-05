@@ -1,0 +1,42 @@
+// import QtQuick 1.0 // to target S60 5th Edition or Maemo 5
+import QtQuick 1.1
+import QtDesktop 0.1
+
+Rectangle {
+    id: specialOffer
+
+    Text {
+        id: title
+        font.pointSize: 20
+        text: qsTr("Special offers")
+        anchors.top: parent.top
+        anchors.topMargin: 20
+        anchors.horizontalCenter: parent.horizontalCenter
+    }
+
+    Text {
+        id: body
+        font.pointSize: 16
+        text: qsTr("The store Store1 has an incredible discount for you: Product1 only Price1.")
+        horizontalAlignment: Text.AlignHCenter
+        wrapMode: Text.WordWrap
+        anchors.margins: 20
+        anchors.top: title.bottom
+        anchors.topMargin: 60
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.bottom: backButton.top
+    }
+
+    Button {
+        id: backButton
+        width: 50
+        height: 50
+        anchors.left: parent.left
+        anchors.leftMargin: 10
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 10
+        text: "Back"
+        onClicked: specialOffer.opacity = 0
+    }
+}
