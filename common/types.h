@@ -10,5 +10,6 @@
 #define GEN_INFO 0x0
 #define SPECIAL_OFFERS 0x01
 #define FOOD_COURT 0x02
+#define FOODCOURT_OBSERVER_PATH "/test/foodcourt"
 
 #endif // _TYPES_H_
