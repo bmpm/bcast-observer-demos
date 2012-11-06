@@ -8,7 +8,7 @@ using namespace org::bluez;
 
 MallObserver::MallObserver(QObject *parent) :
     ObserverAdaptor(parent), m_order("XXXX"), m_restID(0), m_infoID(-1),
-    m_product(0), m_store(0), m_price(-1)
+    m_product(0), m_store(0), m_price("-1")
 {
     Manager manager(BLUEZ_SERVICE_NAME, "/", QDBusConnection::systemBus());
     foreach (const QDBusObjectPath path, manager.adapters()) {
@@ -84,12 +84,16 @@ void MallObserver::parseSpecialOffer(QByteArray value)
 
     int size = value.size() - 2;
     bool ok;
+    float price;
 
     m_store = value.at(0);
     m_product = value.at(1);
 
-    m_price =  value.right(size).toHex().toLong(&ok, 16);
-    m_price /= 100;
+    price =  value.right(size).toHex().toLong(&ok, 16);
+    price /= 100;
+
+    m_price = m_price.sprintf("%0.2f", price);
+
     qDebug() << "Store ID:" << m_store << "Product ID:" << m_product << "Price:" << m_price;
 
     emit offerChanged();

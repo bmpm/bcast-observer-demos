@@ -15,7 +15,7 @@ class MallObserver : public ObserverAdaptor
 
     Q_PROPERTY(int product READ product NOTIFY offerChanged);
     Q_PROPERTY(int store READ store NOTIFY offerChanged);
-    Q_PROPERTY(float price READ price NOTIFY offerChanged);
+    Q_PROPERTY(QString price READ price NOTIFY offerChanged);
 
 public:
     explicit MallObserver(QObject *parent = 0);
@@ -27,7 +27,7 @@ public:
 
     int product() { return m_product; }
     int store() { return m_store; }
-    float price() { return m_price; }
+    QString price() { return m_price; }
 
 signals:
     void orderChanged();
@@ -45,7 +45,7 @@ private:
 
     int m_product;
     int m_store;
-    float m_price;
+    QString m_price;
 
     void parseFoodCourt(QByteArray value);
     void parseGenInfo(QByteArray value);
