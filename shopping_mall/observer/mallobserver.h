@@ -13,6 +13,10 @@ class MallObserver : public ObserverAdaptor
     Q_PROPERTY(int restID WRITE setRestID);
     Q_PROPERTY(int infoID READ infoID NOTIFY infoIDChanged);
 
+    Q_PROPERTY(int product READ product NOTIFY offerChanged);
+    Q_PROPERTY(int store READ store NOTIFY offerChanged);
+    Q_PROPERTY(float price READ price NOTIFY offerChanged);
+
 public:
     explicit MallObserver(QObject *parent = 0);
 
@@ -21,9 +25,14 @@ public:
 
     void setRestID(int id) { m_restID = id; }
 
+    int product() { return m_product; }
+    int store() { return m_store; }
+    float price() { return m_price; }
+
 signals:
     void orderChanged();
     void infoIDChanged();
+    void offerChanged();
 
 public slots:
     void ManufacturerReceived(const QString &address, ushort cid,
@@ -34,8 +43,13 @@ private:
     int m_restID;
     int m_infoID;
 
+    int m_product;
+    int m_store;
+    float m_price;
+
     void parseFoodCourt(QByteArray value);
     void parseGenInfo(QByteArray value);
+    void parseSpecialOffer(QByteArray value);
 };
 
 #endif // MALLOBSERVER_H

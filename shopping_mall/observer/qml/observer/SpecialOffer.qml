@@ -5,6 +5,22 @@ import QtDesktop 0.1
 Rectangle {
     id: specialOffer
 
+    ListModel {
+        id: productsOBSModel
+        ListElement { text: "Product1" }
+        ListElement { text: "Product2" }
+        ListElement { text: "Product3" }
+        ListElement { text: "Product4" }
+    }
+
+    ListModel {
+        id: storesOBSModel
+        ListElement { text: "Sports" }
+        ListElement { text: "Drugstore" }
+        ListElement { text: "Cinema" }
+        ListElement { text: "Computers" }
+    }
+
     Text {
         id: title
         font.pointSize: 20
@@ -17,7 +33,9 @@ Rectangle {
     Text {
         id: body
         font.pointSize: 16
-        text: qsTr("The store Store1 has an incredible discount for you: Product1 only Price1.")
+        text: qsTr("The store " + storesOBSModel.get(observer.store).text +
+                   " has an incredible discount for you: " + productsOBSModel.get(observer.product).text +
+                   " only $" + observer.price)
         horizontalAlignment: Text.AlignHCenter
         wrapMode: Text.WordWrap
         anchors.margins: 20
