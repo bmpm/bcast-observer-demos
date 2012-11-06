@@ -26,7 +26,7 @@ Rectangle {
     Text {
         id: body
         font.pointSize: 50
-        text: "1001"
+        text: observer.order
         horizontalAlignment: Text.AlignHCenter
         wrapMode: Text.WordWrap
         anchors.margins: 20

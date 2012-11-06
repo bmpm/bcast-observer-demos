@@ -24,6 +24,8 @@ public slots:
                               const QByteArray &value);
 private:
     QString m_order;
+
+    void parseFoodCourt(QByteArray value);
 };
 
 #endif // MALLOBSERVER_H
