@@ -26,7 +26,7 @@ Rectangle {
     Text {
         id: body
         font.pointSize: 50
-        text: "1001"
+        text: observer.order
         horizontalAlignment: Text.AlignHCenter
         wrapMode: Text.WordWrap
         anchors.margins: 20
@@ -55,7 +55,9 @@ Rectangle {
         anchors.bottom: backButton.top
         anchors.bottomMargin: 70
 
-        onSelectedIndexChanged: { console.log(selectedText + ", " + selectedIndex)}
+        onSelectedIndexChanged: { console.log(selectedText + ", " + selectedIndex);
+            observer.restID = selectedIndex;
+        }
     }
 
     Button {
