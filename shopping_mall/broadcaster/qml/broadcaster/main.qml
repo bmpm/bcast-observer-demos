@@ -59,6 +59,10 @@ Rectangle {
         id: specialOffer
         opacity: 0
         anchors.fill: parent
+        onClicked: {
+            console.log("Store:" + store + ", Product: " +  product + ", Price: " + price)
+            setter.setSpecialOffer(store, product, price)
+        }
     }
 
     FoodCourt {

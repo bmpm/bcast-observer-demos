@@ -5,6 +5,8 @@ import QtDesktop 0.1
 Rectangle {
     id: specialOffer
 
+    signal clicked(int store, int product, string price)
+
     Text {
         id: title
         font.pointSize: 20
@@ -104,7 +106,7 @@ Rectangle {
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 10
         text: "Submit offer"
-        onClicked: {}
+        onClicked: specialOffer.clicked(storesCombobox.selectedIndex, productsCombobox.selectedIndex, priceTextField.text)
     }
 
     Button {

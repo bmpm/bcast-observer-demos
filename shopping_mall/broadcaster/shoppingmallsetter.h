@@ -16,6 +16,7 @@ signals:
     
 public slots:
     void setGeneralInfo(quint8 info_id);
+    void setSpecialOffer(quint8 store, quint8 product, QString price);
 
 private:
     org::bluez::Manager m_manager;
