@@ -5,6 +5,8 @@ import QtDesktop 0.1
 Rectangle {
     id: generalInfo
 
+    signal clicked(int index)
+
     Text {
         id: title
         font.pointSize: 20
@@ -64,7 +66,7 @@ Rectangle {
 
             MouseArea {
                 anchors.fill: parent
-                onClicked: { console.log(index) }
+                onClicked: generalInfo.clicked(index)
             }
         }
     }

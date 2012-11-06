@@ -1,10 +1,15 @@
 // import QtQuick 1.0 // to target S60 5th Edition or Maemo 5
 import QtQuick 1.1
 import QtDesktop 0.1
+import com.indt.components 1.0
 
 Rectangle {
     width: 500
     height: 500
+
+    ShoppingMallSetter {
+        id: setter
+    }
 
     Column {
         anchors.fill: parent
@@ -43,6 +48,11 @@ Rectangle {
         id: generalInfo
         opacity: 0
         anchors.fill: parent
+
+        onClicked: {
+            console.log(index)
+            setter.setGeneralInfo(index)
+        }
     }
 
     SpecialOffer {

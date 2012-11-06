@@ -14,6 +14,7 @@ HEADERS += \
         adapter.h \
         manager.h \
         dummy.h \
-        observer.h
+        observer.h \
+        types.h
 
 OTHER_FILES +=

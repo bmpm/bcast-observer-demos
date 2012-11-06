@@ -28,10 +28,20 @@ symbian:TARGET.CAPABILITY += NetworkServices
 
 # Add dependency to Symbian components
 # CONFIG += qt-components
+CONFIG += qdbus
 
 # The .cpp file which was generated for your project. Feel free to hack it.
-SOURCES += main.cpp
+SOURCES += main.cpp \
+    shoppingmallsetter.cpp \
+    ../../common/manager.cpp \
+    ../../common/adapter.cpp
 
 # Please do not modify the following two lines. Required for deployment.
 include(qmlapplicationviewer/qmlapplicationviewer.pri)
 qtcAddDeployment()
+
+HEADERS += \
+    shoppingmallsetter.h \
+    ../../common/manager.h \
+    ../../common/adapter.h \
+    ../../common/type.h
