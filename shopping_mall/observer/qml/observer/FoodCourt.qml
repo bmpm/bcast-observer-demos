@@ -33,7 +33,29 @@ Rectangle {
         anchors.top: orderNumber.bottom
         anchors.left: parent.left
         anchors.right: parent.right
+        anchors.bottom: restaurantsCombobox.top
+    }
+
+    ListModel {
+        id: restaurantsModel
+        ListElement { text: "Restaurant1" }
+        ListElement { text: "Restaurant2" }
+        ListElement { text: "Restaurant3" }
+        ListElement { text: "Restaurant4" }
+    }
+
+    ComboBox {
+        id: restaurantsCombobox
+        height: 40
+        model: restaurantsModel
+        anchors.left: parent.left
+        anchors.leftMargin: 10
+        anchors.right: parent.right
+        anchors.rightMargin: 10
         anchors.bottom: backButton.top
+        anchors.bottomMargin: 70
+
+        onSelectedIndexChanged: { console.log(selectedText + ", " + selectedIndex)}
     }
 
     Button {
