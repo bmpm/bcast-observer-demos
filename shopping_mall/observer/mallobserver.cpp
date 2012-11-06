@@ -7,7 +7,7 @@
 using namespace org::bluez;
 
 MallObserver::MallObserver(QObject *parent) :
-    ObserverAdaptor(parent), m_order("XXXX"), m_restID(0)
+    ObserverAdaptor(parent), m_order("XXXX"), m_restID(0), m_infoID(-1)
 {
     Manager manager(BLUEZ_SERVICE_NAME, "/", QDBusConnection::systemBus());
     foreach (const QDBusObjectPath path, manager.adapters()) {
@@ -30,6 +30,7 @@ void MallObserver::ManufacturerReceived(const QString &address, ushort cid,
     switch (value[0]) {
     case GEN_INFO:
         qDebug() << "General Information";
+        parseGenInfo(newValue);
         break;
     case SPECIAL_OFFERS:
         qDebug() << "Special Offers";
@@ -59,4 +60,16 @@ void MallObserver::parseFoodCourt(QByteArray value)
         m_order = QString::number(order);
         emit orderChanged();
     }
+}
+
+void MallObserver::parseGenInfo(QByteArray value)
+{
+    /* Data format: Info ID (1 octet) */
+
+    bool ok;
+
+    m_infoID = value.toHex().toLong(&ok, 16);
+    qDebug() << "Info ID:" << m_infoID;
+
+    emit infoIDChanged();
 }
