@@ -7,6 +7,7 @@ Rectangle {
     height: 500
 
     Column {
+        id: mainScr
         anchors.fill: parent
         anchors.topMargin: 30
         spacing: 30
@@ -17,7 +18,10 @@ Rectangle {
             height: 50
             anchors.horizontalCenter: parent.horizontalCenter
             text: "General Info"
-            onClicked: generalInfo.opacity = 1
+            onClicked: {
+                mainScr.opacity = 0
+                generalInfo.opacity = 1
+            }
         }
 
         Button {
@@ -26,7 +30,10 @@ Rectangle {
             height: 50
             anchors.horizontalCenter: parent.horizontalCenter
             text: "Special offers"
-            onClicked: specialOffer.opacity = 1
+            onClicked: {
+                mainScr.opacity = 0
+                specialOffer.opacity = 1
+            }
         }
 
         Button {
@@ -35,7 +42,10 @@ Rectangle {
             height: 50
             anchors.horizontalCenter: parent.horizontalCenter
             text: "Food court"
-            onClicked: foodCourt.opacity = 1
+            onClicked: {
+                mainScr.opacity = 0
+                foodCourt.opacity = 1
+            }
         }
     }
 
