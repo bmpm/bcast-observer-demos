@@ -101,6 +101,9 @@ Rectangle {
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 10
         text: "Back"
-        onClicked: foodCourt.opacity = 0
+        onClicked: {
+            foodCourt.visible = false
+            mainScr.visible = true
+        }
     }
 }

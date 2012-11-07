@@ -12,6 +12,7 @@ Rectangle {
     }
 
     Column {
+        id: mainScr
         anchors.fill: parent
         anchors.topMargin: 30
         spacing: 30
@@ -22,7 +23,10 @@ Rectangle {
             height: 50
             anchors.horizontalCenter: parent.horizontalCenter
             text: "General Info"
-            onClicked: generalInfo.opacity = 1
+            onClicked: {
+                mainScr.visible = false
+                generalInfo.visible = true
+            }
         }
 
         Button {
@@ -31,7 +35,10 @@ Rectangle {
             height: 50
             anchors.horizontalCenter: parent.horizontalCenter
             text: "Special offers"
-            onClicked: specialOffer.opacity = 1
+            onClicked: {
+                mainScr.visible = false
+                specialOffer.visible = true
+            }
         }
 
         Button {
@@ -40,13 +47,16 @@ Rectangle {
             height: 50
             anchors.horizontalCenter: parent.horizontalCenter
             text: "Food court"
-            onClicked: foodCourt.opacity = 1
+            onClicked: {
+                mainScr.visible = false
+                foodCourt.visible = true
+            }
         }
     }
 
     GeneralInfo {
         id: generalInfo
-        opacity: 0
+        visible: false
         anchors.fill: parent
 
         onClicked: {
@@ -57,7 +67,7 @@ Rectangle {
 
     SpecialOffer {
         id: specialOffer
-        opacity: 0
+        visible: false
         anchors.fill: parent
         onClicked: {
             console.log("Store:" + store + ", Product: " +  product + ", Price: " + price)
@@ -67,7 +77,7 @@ Rectangle {
 
     FoodCourt {
         id: foodCourt
-        opacity: 0
+        visible: false
         anchors.fill: parent
         onClicked: {
             console.log("Restaurant:" + restaurant + ", Number: " +  number)

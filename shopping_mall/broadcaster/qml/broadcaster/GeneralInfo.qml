@@ -80,6 +80,9 @@ Rectangle {
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 10
         text: "Back"
-        onClicked: generalInfo.opacity = 0
+        onClicked: {
+            generalInfo.visible = false
+            mainScr.visible = true
+        }
     }
 }
