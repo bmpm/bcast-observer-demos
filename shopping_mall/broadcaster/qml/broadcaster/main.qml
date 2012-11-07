@@ -69,5 +69,9 @@ Rectangle {
         id: foodCourt
         opacity: 0
         anchors.fill: parent
+        onClicked: {
+            console.log("Restaurant:" + restaurant + ", Number: " +  number)
+            setter.setFoodCourt(restaurant, number)
+        }
     }
 }

@@ -17,6 +17,7 @@ signals:
 public slots:
     void setGeneralInfo(quint8 info_id);
     void setSpecialOffer(quint8 store, quint8 product, QString price);
+    void setFoodCourt(quint8 restaurant, QString number);
 
 private:
     org::bluez::Manager m_manager;

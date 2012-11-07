@@ -78,3 +78,20 @@ void ShoppingMallSetter::setSpecialOffer(quint8 store, quint8 product, QString s
     foreach (Adapter *adapter, m_adapters)
         adapter->SetManufacturerData(MALL_COMPANY_ID, data);
 }
+
+void ShoppingMallSetter::setFoodCourt(quint8 restaurant, QString number)
+{
+    QByteArray data;
+    QDataStream ds(&data, QIODevice::WriteOnly);
+    quint8 msg_type = FOOD_COURT;
+    quint32 n = number.toUInt();
+
+    ds << msg_type;
+    ds << restaurant;
+    ds << n;
+
+    qDebug() << "Restaurant:" << restaurant << ", Number:" << n;
+
+    foreach (Adapter *adapter, m_adapters)
+        adapter->SetManufacturerData(MALL_COMPANY_ID, data);
+}

@@ -5,6 +5,8 @@ import QtDesktop 0.1
 Rectangle {
     id: foodCourt
 
+    signal clicked(int restaurant, string number)
+
     Text {
         id: title
         font.pointSize: 20
@@ -87,7 +89,7 @@ Rectangle {
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 10
         text: "Announce"
-        onClicked: {}
+        onClicked: foodCourt.clicked(restaurantsCombobox.selectedIndex, numberCombobox.selectedText)
     }
 
     Button {
